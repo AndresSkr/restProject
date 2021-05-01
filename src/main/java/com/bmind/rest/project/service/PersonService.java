@@ -45,9 +45,9 @@ public class PersonService {
 	
 	public PersonDTO createPerson(PersonDTO dto) {
 		
-		//PersonEntity personfind=  repository.findByIdNumber(dto.getIdNumber());
+		PersonEntity personfind=  repository.findByIdNumber(dto.getIdNumber());
 		
-		//if(personfind==null) {
+		if(personfind==null) {
 			PersonEntity entity = new PersonEntity();
 			entity.setAddress(dto.getAddress());
 			entity.setFisrt_names(dto.getFisrtnames());
@@ -61,9 +61,9 @@ public class PersonService {
 			entity =repository.save(entity);
 			dto.setId(entity.getId());
 			return dto;
-		//}
+		}
 		
-		//return null;
+		return null;
 	}
 	
 	

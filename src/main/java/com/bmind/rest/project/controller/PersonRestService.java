@@ -32,10 +32,10 @@ public class PersonRestService {
 	}
 	
 	@PostMapping("/create")
-	public PersonDTO /*ResponseEntity<PersonDTO> */createPerson(@RequestBody() PersonDTO dto) {
-		//PersonDTO dtoResponse = service.createPerson(dto);
-		//return dtoResponse != null ? ResponseEntity.ok(dtoResponse) : ResponseEntity.noContent().build();
-		return service.createPerson(dto);
+	public ResponseEntity<PersonDTO>createPerson(@RequestBody() PersonDTO dto) {
+		PersonDTO dtoResponse = service.createPerson(dto);
+		return dtoResponse != null ? ResponseEntity.ok(dtoResponse) : ResponseEntity.noContent().build();
+		
 	}
 
 }
