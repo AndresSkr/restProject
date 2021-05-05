@@ -1,8 +1,10 @@
 package com.bmind.rest.project.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.ResponseEntity.HeadersBuilder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -34,7 +36,8 @@ public class PersonRestService {
 	@PostMapping("/create")
 	public ResponseEntity<PersonDTO>createPerson(@RequestBody() PersonDTO dto) {
 		PersonDTO dtoResponse = service.createPerson(dto);
-		return dtoResponse != null ? ResponseEntity.ok(dtoResponse) : ResponseEntity.noContent().build();
+		//return dtoResponse != null ? ResponseEntity.ok(dtoResponse) : ResponseEntity.noContent().build();
+		return dtoResponse != null ? ResponseEntity.ok(dtoResponse) : ResponseEntity.status(HttpStatus.CONFLICT).build();
 		
 	}
 
